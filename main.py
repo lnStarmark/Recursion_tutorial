@@ -14,11 +14,10 @@ import str_common as strc
 
 PATH_TEXT = "docs\\soft_string_save.txt"
 
-
 def selfdoc():
     print(
         ''' 
-           === Any function with JSON on Python ==================================
+           === Any function with recursive call on Python ========================
 
            def CalcSumNumbers(A):   Рекурс функ - возвращает сумму чисел во входящем наборе
            def Fn(arg, op: str):    Рекурс функ - возвр htpekmnfn {+,-,*} чисел в наборе
