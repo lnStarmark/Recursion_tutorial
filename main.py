@@ -69,26 +69,33 @@ def Fn(arg, op: str):
 
 #--- Демонстрация использования функции CalcSumNumbers()
 #--- Создать набор чисел разной длины списка и вычислить сумму
-def Test1_recurs(n: int) -> bool:
-    try:
-        L = [x**2 for x in range(0, n)]
-        sum = CalcSumNumbers(L)
-        #print(sum)
-    except:
-        print("Err: *** OverRec1 ***")
-        return False
-    return True
 
-def Test2_recurs(n: int) -> bool:
+def Test1_recurs(testN: int):
+    sum = 0
+    n = 1
     try:
-        l = [x**2 for x in range(1, n) if x % 2 == 0]
-        sum = CalcSumNumbers(l)
-        #print(sum)
+        while True:
+            L = [x**2 for x in range(0, n)]
+            sum = CalcSumNumbers(L)
+            n += 1
     except:
-        print("Err: *** OverRec2 ***")
-        return False
-    return True
+        print(f"Limit{testN:2}: {n}\t\tsum = {sum:12}\t\tErr: *** OverRec{testN} ***")
 
+def Test2_recurs(testN: int):
+    sum = 0
+    n = 1
+    try:
+        while True:
+            L = [x**2 for x in range(0, n) if(x % 2 == 0)]
+            sum = CalcSumNumbers(L)
+            n += 1
+    except:
+        print(f"Limit{testN:2}: {n}\t\tsum = {sum:12}\t\tErr: *** OverRec{testN} ***")
+
+
+#--- Демонстрация использования функции Fn(arg, op: str)
+#--- Создать набор чисел разной длины списка и вычислить результат
+#--- с учетом оператора
 def Test3_recurs(n: int, op: str) -> bool:
     try:
         l = [x**2 for x in range(1, n)]
@@ -115,15 +122,9 @@ def main():
 
     strc.zagolovok("Первая работа: Выясним глубину рекурсии в зависимости от значения cnt")
 
-    cnt = 0
-    while(Test1_recurs(cnt)):
-        cnt += 1
-    print(f"Limit1: {cnt}")
+    Test1_recurs(1)
 
-    cnt = 0
-    while(Test2_recurs(cnt)):
-        cnt += 1
-    print(f"Limit2: {cnt}")
+    Test2_recurs(2)
 
     cnt = 0
     while(Test3_recurs(cnt, "+")):
